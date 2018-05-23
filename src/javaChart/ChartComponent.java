@@ -23,6 +23,9 @@ public class ChartComponent extends JPanel implements Serializable {
     Dimension size;
     public int value;
     public int value2;
+    public int value3;
+    public int value4;
+    public int value5;
     public int maxValue = 100;
    
     private Map<Color, Integer> bars =
@@ -39,6 +42,26 @@ public class ChartComponent extends JPanel implements Serializable {
             bars.put(color, value2);
             repaint();
     }
+    
+    public void addBar3 (Color color, int value3)
+    {
+            bars.put(color, value3);
+            repaint();
+    }
+    
+    public void addBar4 (Color color, int value4)
+    {
+            bars.put(color, value4);
+            repaint();
+    }
+        
+    public void addBar5 (Color color, int value5)
+    {
+            bars.put(color, value5);
+            repaint();
+    }
+        
+    
    
     protected void paintComponent(Graphics g)
     {
@@ -76,13 +99,16 @@ public class ChartComponent extends JPanel implements Serializable {
     }
    
     ///////////////////////////////////////
-    //properties dla wartośći słupka
+    //properties dla wartości słupka
     //private PropertyChangeSupport va =
             //new PropertyChangeSupport(this);
    
     public void updateValues(){
         addBar(Color.red, (int) value);
         addBar(Color.blue, (int) value2);
+        addBar(Color.black, (int) value3);
+        addBar(Color.pink, (int) value4);
+        addBar(Color.orange, (int) value5);
         repaint();
     }
    
@@ -116,6 +142,51 @@ public class ChartComponent extends JPanel implements Serializable {
         //va.firePropertyChange("Wartość", oldValue, val);
     }
     ////////////////////////////////////
+    
+    public synchronized int getValue3(){
+        return this.value3;
+    }
+   
+    public synchronized void setValue3(int value3){
+        //int oldValue = value;
+        chg.firePropertyChange("3333", this.value3, value3);
+        this.value3 = value3;
+        updateValues();
+        this.revalidate();
+        this.repaint();
+        //va.firePropertyChange("Wartość", oldValue, val);
+    }
+    ////////////////////////////////////
+    
+    public synchronized int getValue4(){
+        return this.value4;
+    }
+   
+    public synchronized void setValue4(int value4){
+        //int oldValue = value;
+        chg.firePropertyChange("44444", this.value4, value4);
+        this.value4 = value4;
+        updateValues();
+        this.revalidate();
+        this.repaint();
+        //va.firePropertyChange("Wartość", oldValue, val);
+    }
+    ////////////////////////////////////
+    
+    public synchronized int getValue5(){
+        return this.value5;
+    }
+   
+    public synchronized void setValue5(int value5){
+        //int oldValue = value;
+        chg.firePropertyChange("5555", this.value5, value5);
+        this.value5 = value5;
+        updateValues();
+        this.revalidate();
+        this.repaint();
+        //va.firePropertyChange("Wartość", oldValue, val);
+    }
+    ////////////////////////////////////
    
     public ChartComponent() {
         Dimension size = getPreferredSize();
@@ -125,7 +196,10 @@ public class ChartComponent extends JPanel implements Serializable {
         setSize(400, 200);
         //setPreferredSize();
         addBar(Color.red, (int) 70);
-        addBar(Color.blue, (int) 20);    
+        addBar(Color.blue, (int) 34); 
+        addBar(Color.black, (int) 23); 
+        addBar(Color.pink, (int) 65); 
+        addBar(Color.orange, (int) 49); 
     }
       
 }
