@@ -132,7 +132,7 @@ public class BarDisplay extends JPanel implements Serializable {
         this.repaint();
         //va.firePropertyChange("Wartość", oldValue, val);
     }
-    ///////////////////////////////////
+    ////////////////////////////////////
     
     public synchronized int getValue2(){
         return this.value2;
