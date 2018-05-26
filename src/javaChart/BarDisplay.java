@@ -72,7 +72,6 @@ public class BarDisplay extends JPanel implements Serializable {
             int max = maxValue;
            
             // rysowanie słupków
- 
             int width = (getWidth() / bars.size()) - 2;
             int x = 1;
             for (Color color : bars.keySet())
@@ -81,9 +80,9 @@ public class BarDisplay extends JPanel implements Serializable {
                     int height = (int)
                         ((getHeight()) * ((double)value / max));
                     g.setColor(getBackground());
-                    g.fillRect(x, getHeight() - height, width, height);
+                    g.fillRect(x, getHeight() - height, width, height); //wypełnij słupek kolorem
                     g.setColor(getForeground());
-                    g.drawRect(x, getHeight() - height, width, height);
+                    g.drawRect(x, getHeight() - height, width, height); //rysuj obramowanie słupka kolorem
                     x += (width + 2);
             }
     }
