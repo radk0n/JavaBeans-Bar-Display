@@ -201,7 +201,6 @@ public class BarDisplay extends JPanel implements Serializable {
         setPreferredSize(new Dimension(300, 300));
         setBackground(Color.red);
         setSize(400, 200);
-        //setPreferredSize();
         addBar(Color.red, (int) 70);
         addBar(Color.blue, (int) 34); 
         addBar(Color.black, (int) 23); 
